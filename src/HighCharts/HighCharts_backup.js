@@ -4,8 +4,7 @@ import Highcharts from 'highcharts';
 import Drilldown from 'highcharts-drilldown';
 Drilldown(Highcharts);
  
-const series1 = { data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4] };
-const series2 = { data: [10.9, 20.5, 30.4, 40.2, 50.0, 60.0, 10.6, 30.5, 50.4, 70.1, 100.6, 50.4] };
+
 
  
 // Create the chart
@@ -46,7 +45,35 @@ const config = {
         pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
     },
  
-    series: [series1, series2],
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'Microsoft Internet Explorer',
+            y: 56.33,
+            drilldown: 'Microsoft Internet Explorer'
+        }, {
+            name: 'Chrome',
+            y: 24.03,
+            drilldown: 'Chrome'
+        }, {
+            name: 'Firefox',
+            y: 10.38,
+            drilldown: 'Firefox'
+        }, {
+            name: 'Safari',
+            y: 4.77,
+            drilldown: 'Safari'
+        }, {
+            name: 'Opera',
+            y: 0.91,
+            drilldown: 'Opera'
+        }, {
+            name: 'Proprietary or Undetectable',
+            y: 0.2,
+            drilldown: null
+        }]
+    }],
     drilldown: {
 		animation: false,
         series: [{
